@@ -1,0 +1,14 @@
+version: '3'
+services:
+  flask:
+    build: ./flask_simple_messenger
+    container_name: flask-simple-messenger
+    environment:
+      - FLASK_ENV=development
+      - PYTHONUNBUFFERED=True                   
+    restart: on-failure
+    volumes:
+      - ./flask_simple_messenger:/flask_simple_messenger
+    ports:
+      - "5000:5000"
+    command: python app.py
