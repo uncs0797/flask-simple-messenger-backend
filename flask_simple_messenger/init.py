@@ -1,8 +1,10 @@
 from app import App
+from api.auth.authModule import AuthModule
 
 app = App.app()
 db = App.db()
 
+app.register_blueprint(AuthModule())
 
 if __name__ == '__main__':
     app.app_context().push()
