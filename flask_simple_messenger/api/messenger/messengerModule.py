@@ -1,6 +1,7 @@
 from flask import Blueprint
 
 from api.messenger.message.messageModule import MessagesModule
+from api.messenger.contact.contactModule import ContactModule
 
 
 class MessengerModule(Blueprint):
@@ -10,6 +11,7 @@ class MessengerModule(Blueprint):
 
         self.setRouting()
         self.register_blueprint(MessagesModule())
+        self.register_blueprint(ContactModule())
 
     def setRouting(self):
         pass
