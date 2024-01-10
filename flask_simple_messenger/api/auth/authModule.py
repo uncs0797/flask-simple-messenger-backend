@@ -11,9 +11,10 @@ def validateToken():
     session = Session.query.filter_by(token=token).first()
     if not(session):
         response = make_response('noSuchToken,')
-        return response
+        return response, None
+    user = session.user
     response = make_response('OK')
-    return response
+    return response, user
 
 def createUserSession(user):
     token = user.username
